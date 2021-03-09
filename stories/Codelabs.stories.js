@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Codelabs } from "../src/index.js";
+import { CopyToClipboard } from "../src/components/copytoclipboard";
 import response from "./document-1607876232180.json";
 
 import {
@@ -15,6 +16,7 @@ import { StyledLink } from "baseui/link";
 import { Notification } from "baseui/notification";
 import Check from "baseui/icon/check";
 import { ListItem, ListItemLabel } from "baseui/list";
+import { ArrowUp } from "baseui/icon";
 
 export default {
   title: "Codelabs/Example",
@@ -103,7 +105,7 @@ export const BaseWeb = () => {
             </Block>
           );
         },
-        Parapgraph: ({ children }) => {
+        Paragraph: ({ children }) => {
           return (
             <Block $as="p" font="font300">
               {children}
@@ -141,10 +143,14 @@ export const BaseWeb = () => {
                 Block: {
                   style: {
                     overflowX: "scroll",
+                    position: "relative"
                   },
                 },
               }}
             >
+              <CopyToClipboard copyContent={children}>
+                <ArrowUp size={30} />
+              </CopyToClipboard>
               <Block $as="pre" padding="10px" margin="0">
                 {children}
               </Block>
@@ -162,6 +168,9 @@ export const BaseWeb = () => {
                 },
               }}
             >
+              <CopyToClipboard copyContent={children}>
+                <ArrowUp size={30} />
+              </CopyToClipboard>
               <Block $as="pre" padding="10px" margin="0">
                 {children}
               </Block>

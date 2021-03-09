@@ -18,7 +18,7 @@ import {
   InfoBox,
   WarningBox,
   CodeBox,
-  Parapgraph,
+  Paragraph,
   ListItem,
   Img,
   IFrame,
@@ -50,7 +50,7 @@ export function Codelabs({
   const H4Component = overrides.H4 || H4;
   const H5Component = overrides.H5 || H5;
   const H6Component = overrides.H6 || H6;
-  const ParapgraphComponent = overrides.Parapgraph || Parapgraph;
+  const ParagraphComponent = overrides.Paragraph || Paragraph;
   const ListItemComponent = overrides.ListItem || ListItem;
 
   const ButtonLinkComponent = overrides.ButtonLink || ButtonLink;
@@ -60,14 +60,13 @@ export function Codelabs({
   const InfoBoxComponent = overrides.InfoBox || InfoBox;
   const WarningBoxComponent = overrides.WarningBox || WarningBox;
   const CodeBoxComponent = overrides.CodeBox || CodeBox;
-
   const ImgComponent = overrides.Img || Img;
   const IFrameComponent = overrides.IFrame || IFrame;
 
   const parsedContent = Extract.parse(content, iframeSourceUrls);
 
   const Mapper = {
-    p: (props) => <ParapgraphComponent>{props.children}</ParapgraphComponent>,
+    p: (props) => <ParagraphComponent>{props.children}</ParagraphComponent>,
     h2: (props) => <H2Component>{props.children}</H2Component>,
     h3: (props) => <H3Component>{props.children}</H3Component>,
     h4: (props) => <H4Component>{props.children}</H4Component>,
@@ -88,7 +87,7 @@ export function Codelabs({
       <SnippetComponent {...props}>{props.children}</SnippetComponent>
     ),
     codebox: (props) => (
-      <CodeBoxComponent {...props}>{props.children}</CodeBoxComponent>
+      <CodeBoxComponent{...props}>{props.children}</CodeBoxComponent>
     ),
     img: (props) => <ImgComponent {...props} />,
     iframe: (props) => <IFrameComponent {...props} />,

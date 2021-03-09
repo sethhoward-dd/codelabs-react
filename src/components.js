@@ -1,5 +1,7 @@
 import React from "react";
 
+import { CopyToClipboard } from './components/copytoclipboard';
+
 export function Header({ title }) {
   return (
     <header
@@ -94,7 +96,7 @@ export function H6({ children }) {
   return <h6>{children}</h6>;
 }
 
-export function Parapgraph({ children }) {
+export function Paragraph({ children }) {
   return <p>{children}</p>;
 }
 
@@ -140,17 +142,45 @@ export function Link({ children, href }) {
 
 export function Snippet({ children }) {
   return (
-    <pre>
-      <code>{children}</code>
-    </pre>
+    <div style={{ position: "relative" }}>
+      <CopyToClipboard copyContent={children}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="#000"
+          width="25px"
+          height="25px"
+        >
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M19 2h-4.18C14.4.84 13.3 0 12 0c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 18H5V4h2v3h10V4h2v16z" />
+        </svg>
+      </CopyToClipboard>
+      <pre>
+        <code>{children}</code>
+      </pre>
+    </div>
   );
 }
 
 export function CodeBox({ children }) {
   return (
-    <pre>
-      <code>{children}</code>
-    </pre>
+    <div style={{ position: "relative" }}>
+      <CopyToClipboard copyContent={children}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="#000"
+          width="25px"
+          height="25px"
+        >
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M19 2h-4.18C14.4.84 13.3 0 12 0c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 18H5V4h2v3h10V4h2v16z" />
+        </svg>
+      </CopyToClipboard>
+      <pre>
+        <code>{children}</code>
+      </pre>
+    </div>
   );
 }
 
